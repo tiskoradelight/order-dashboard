@@ -8,7 +8,7 @@ function saveData() {
 
     let total = amazon + meeshoTD + meeshoMM + flipkart;
 
-    let orderData = {
+    let order = {
         date: date,
         amazon: amazon,
         meeshoTD: meeshoTD,
@@ -17,25 +17,37 @@ function saveData() {
         total: total
     };
 
-    // Data save karna
-    localStorage.setItem("orderData", JSON.stringify(orderData));
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-    showData();
+    orders.push(order);
+
+    localStorage.setItem("orders", JSON.stringify(orders));
+
+    showHistory();
 }
 
-function showData() {
+function showHistory() {
 
-    let data = JSON.parse(localStorage.getItem("orderData"));
+    let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-    if (data) {
-        document.getElementById("showDate").innerText = data.date;
-        document.getElementById("showAmazon").innerText = data.amazon;
-        document.getElementById("showMeeshoTD").innerText = data.meeshoTD;
-        document.getElementById("showMeeshoMM").innerText = data.meeshoMM;
-        document.getElementById("showFlipkart").innerText = data.flipkart;
-        document.getElementById("showTotal").innerText = data.total;
-    }
+    let table = document.getElementById("historyTable");
+
+    table.innerHTML = "";
+
+    orders.forEach(function(order){
+
+        table.innerHTML += `
+        <tr>
+            <td>${order.date}</td>
+            <td>${order.amazon}</td>
+            <td>${order.meeshoTD}</td>
+            <td>${order.meeshoMM}</td>
+            <td>${order.flipkart}</td>
+            <td>${order.total}</td>
+        </tr>
+        `;
+    });
+
 }
 
-// Page load hote hi data dikhane ke liye
-showData();
+showHistory();
