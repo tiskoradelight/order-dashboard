@@ -25,18 +25,23 @@
 <label>Flipkart Orders</label><br>
 <input type="number" id="flipkart"><br><br>
 
-<button>Save</button>
+<button onclick="saveData()">Save</button>
 
 <hr>
-
 <h2>Today's Summary</h2>
 
-<p>Date : 16-06-2026</p>
-<p>Amazon Orders : 0</p>
-<p>Meesho TD Orders : 0</p>
-<p>Meesho MM Orders : 0</p>
-<p>Flipkart Orders : 0</p>
-<p><b>Total Orders : 0</b></p>
+<p>Date : <span id="showDate">-</span></p>
+
+<p>Amazon Orders : <span id="showAmazon">0</span></p>
+
+<p>Meesho TD Orders : <span id="showMeeshoTD">0</span></p>
+
+<p>Meesho MM Orders : <span id="showMeeshoMM">0</span></p>
+
+<p>Flipkart Orders : <span id="showFlipkart">0</span></p>
+
+<p><b>Total Orders : <span id="showTotal">0</span></b></p>
+
 
 <script src="script.js"></script>
 
