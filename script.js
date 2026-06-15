@@ -1,3 +1,4 @@
+```javascript
 function saveData() {
 
     let date = document.getElementById("date").value;
@@ -17,6 +18,14 @@ function saveData() {
         total: total
     };
 
+    // Today's Summary update
+    document.getElementById("showDate").innerText = date;
+    document.getElementById("showAmazon").innerText = amazon;
+    document.getElementById("showMeeshoTD").innerText = meeshoTD;
+    document.getElementById("showMeeshoMM").innerText = meeshoMM;
+    document.getElementById("showFlipkart").innerText = flipkart;
+    document.getElementById("showTotal").innerText = total;
+
     let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
     orders.push(order);
@@ -34,7 +43,7 @@ function showHistory() {
 
     table.innerHTML = "";
 
-    orders.forEach(function(order){
+    orders.forEach(function(order) {
 
         table.innerHTML += `
         <tr>
@@ -51,3 +60,4 @@ function showHistory() {
 }
 
 showHistory();
+```
