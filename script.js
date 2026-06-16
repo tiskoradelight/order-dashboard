@@ -1,63 +1,66 @@
-```javascript
 function saveData() {
 
-    let date = document.getElementById("date").value;
-    let amazon = Number(document.getElementById("amazon").value);
-    let meeshoTD = Number(document.getElementById("meeshoTD").value);
-    let meeshoMM = Number(document.getElementById("meeshoMM").value);
-    let flipkart = Number(document.getElementById("flipkart").value);
+```
+let date = document.getElementById("date").value;
+let amazon = Number(document.getElementById("amazon").value);
+let meeshoTD = Number(document.getElementById("meeshoTD").value);
+let meeshoMM = Number(document.getElementById("meeshoMM").value);
+let flipkart = Number(document.getElementById("flipkart").value);
 
-    let total = amazon + meeshoTD + meeshoMM + flipkart;
+let total = amazon + meeshoTD + meeshoMM + flipkart;
 
-    let order = {
-        date: date,
-        amazon: amazon,
-        meeshoTD: meeshoTD,
-        meeshoMM: meeshoMM,
-        flipkart: flipkart,
-        total: total
-    };
+let order = {
+    date: date,
+    amazon: amazon,
+    meeshoTD: meeshoTD,
+    meeshoMM: meeshoMM,
+    flipkart: flipkart,
+    total: total
+};
 
-    // Today's Summary update
-    document.getElementById("showDate").innerText = date;
-    document.getElementById("showAmazon").innerText = amazon;
-    document.getElementById("showMeeshoTD").innerText = meeshoTD;
-    document.getElementById("showMeeshoMM").innerText = meeshoMM;
-    document.getElementById("showFlipkart").innerText = flipkart;
-    document.getElementById("showTotal").innerText = total;
+// Today's Summary update
+document.getElementById("showDate").innerText = date;
+document.getElementById("showAmazon").innerText = amazon;
+document.getElementById("showMeeshoTD").innerText = meeshoTD;
+document.getElementById("showMeeshoMM").innerText = meeshoMM;
+document.getElementById("showFlipkart").innerText = flipkart;
+document.getElementById("showTotal").innerText = total;
 
-    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-    orders.push(order);
+orders.push(order);
 
-    localStorage.setItem("orders", JSON.stringify(orders));
+localStorage.setItem("orders", JSON.stringify(orders));
 
-    showHistory();
+showHistory();
+```
+
 }
 
 function showHistory() {
 
-    let orders = JSON.parse(localStorage.getItem("orders")) || [];
+```
+let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
-    let table = document.getElementById("historyTable");
+let table = document.getElementById("historyTable");
 
-    table.innerHTML = "";
+table.innerHTML = "";
 
-    orders.forEach(function(order) {
+orders.forEach(function(order) {
 
-        table.innerHTML += `
-        <tr>
-            <td>${order.date}</td>
-            <td>${order.amazon}</td>
-            <td>${order.meeshoTD}</td>
-            <td>${order.meeshoMM}</td>
-            <td>${order.flipkart}</td>
-            <td>${order.total}</td>
-        </tr>
-        `;
-    });
+    table.innerHTML += `
+    <tr>
+        <td>${order.date}</td>
+        <td>${order.amazon}</td>
+        <td>${order.meeshoTD}</td>
+        <td>${order.meeshoMM}</td>
+        <td>${order.flipkart}</td>
+        <td>${order.total}</td>
+    </tr>
+    `;
+});
+```
 
 }
 
 showHistory();
-```
