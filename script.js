@@ -1,6 +1,5 @@
 function saveData() {
 
-```
 let date = document.getElementById("date").value;
 let amazon = Number(document.getElementById("amazon").value);
 let meeshoTD = Number(document.getElementById("meeshoTD").value);
@@ -33,7 +32,6 @@ orders.push(order);
 localStorage.setItem("orders", JSON.stringify(orders));
 
 showHistory();
-```
 
 }
 
