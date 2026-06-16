@@ -39,7 +39,6 @@ showHistory();
 
 function showHistory() {
 
-```
 let orders = JSON.parse(localStorage.getItem("orders")) || [];
 
 let table = document.getElementById("historyTable");
@@ -59,7 +58,7 @@ orders.forEach(function(order) {
     </tr>
     `;
 });
-```
+
 
 }
 
